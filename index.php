@@ -2,7 +2,7 @@
 /* include the class file (global - within application) */
 include 'config/config.php';
 
-$page = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : '';
+$page = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : ''; /* ang $page variable is connected to  line 34 and line 40. */
 $subpage = (isset($_GET['subpage']) && $_GET['subpage'] != '') ? $_GET['subpage'] : '';
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 $id = (isset($_GET['id']) && $_GET['id'] != '') ? $_GET['id'] : '';
@@ -30,10 +30,13 @@ $id = (isset($_GET['id']) && $_GET['id'] != '') ? $_GET['id'] : '';
       <a href="index.php">Home</a> | 
       <a href="#">Link 3</a> | 
       <a href="#">Link 4</a> |
+
+      <!-- $page variable from line 5 should have the same name as well sa page=settings kay ang "page" sa page=settings is just a variable name from above -->
       <a href="index.php?page=settings">Settings</a> | <a href="#" class="move-right">Log Out</a>
   </div>
   <div id="content">
     <?php
+    // The $page variable from line 5 and line 34 is connected to the switch case variable from below
       switch($page){
                 case 'settings':
                     require_once 'settings-module/index.php';
